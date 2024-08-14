@@ -21,7 +21,7 @@ const Header = () => {
           </div>
           <div className={`nav__collect ${isMenuOpen ? "show" : ""}`}>
             <ul className="navbar__collection flex gap-7">
-            <Link className={"text-[#000] "} to={"/"}>
+            <Link className={"text-[#323131] "} to={"/"}>
                 Home
               </Link>
               <Link className={"text-[#323131] "} to={"/catalog"}>
