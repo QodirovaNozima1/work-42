@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import "./Product.css";
 import { LiaCartPlusSolid } from "react-icons/lia";
-import { LiaSpinnerSolid } from "react-icons/lia";
+import { PiSpinnerBold } from "react-icons/pi";
 import axios from 'axios'
 const API_URL = "https://dummyjson.com"
 const Product = () => {
@@ -49,7 +49,7 @@ const Product = () => {
     }
 
     const productItem = products?.map((product) => (
-        <div key={product.id} className='w-72 p-3 api flex flex-col gap-4 items-center justify-center rounded-lg  relative'>
+        <div key={product.id} className='w-72 p-3 api flex flex-col gap-4 items-center justify-center rounded-lg  relative overflow-hidden'>
             <img src={product.images[0]} alt="" className='w-full h-52 object-contain hover:scale-105 ' />
             <div className='flex flex-col gap-2 '>
                 <h3 className='text-center text-xl font-semibold'>{product.brand}</h3>
@@ -84,7 +84,10 @@ const Product = () => {
             <div className='flex gap-3 flex-wrap items-center justify-center'>
                 { productItem}
             </div>
-            {loading && <h2 className='text text-4xl text-center text-zinc-800'>Loading....</h2>}
+            <div className=" text-center">
+            {loading && <button className='bg-gray-500 text-2xl w-15  h-11 p-2 text-center border justify-center text-gray-200'><PiSpinnerBold /></button>}
+            </div>
+
             {
                 limit * onset <= total &&
                 <button onClick={() => setOnset(p => p + 1)} className='py-2 px-6 border rounded-md block mx-auto mt-5 bg-emerald-300 text-slate-100 text green'>See more</button>

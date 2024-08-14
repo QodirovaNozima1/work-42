@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import "./Header.css"
 import navlogo from "../../assets/click.png"
 import { AiOutlineMenuUnfold } from "react-icons/ai";
+import axios from 'axios';
+import { Link } from "react-router-dom";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -19,9 +21,21 @@ const Header = () => {
           </div>
           <div className={`nav__collect ${isMenuOpen ? "show" : ""}`}>
             <ul className="navbar__collection flex gap-7">
-              {
-                links?.map((el, index) => (<li key={index} className="navbar__item"><a href="#"><span>{el}</span></a></li>))
-              }
+            <Link className={"text-[#000] "} to={"/"}>
+                Home
+              </Link>
+              <Link className={"text-[#323131] "} to={"/catalog"}>
+                Каталог
+              </Link>
+              <Link className={"text-[#323131] "} to={"/dostafka"}>
+                Доставка
+              </Link>
+              <Link className={"text-[#323131] "} to={"/uslogiya"}>
+                Условия
+              </Link>
+              <Link className={"text-[#323131] "} to={"/contact"}>
+                Контакты
+              </Link>
             </ul>
           </div>
           <div className="navbar__number  flex-col text-base font-medium ">
